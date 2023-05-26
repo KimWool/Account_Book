@@ -13,8 +13,4 @@
         <item>기타</item>
     </string-array>
     <string name="app_name">Account_Book</string>
-    <string name="previous_string">&lt;</string>
-    <string name="next_string">&gt;</string>
-    <string name="income">수입</string>
-    <string name="expense">소비</string>
 </resources>

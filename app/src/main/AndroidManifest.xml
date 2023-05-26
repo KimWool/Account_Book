@@ -25,9 +25,6 @@
             android:name=".Data_Show_Activity"
             android:exported="false" />
         <activity
-            android:name=".Expenditure_Activity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

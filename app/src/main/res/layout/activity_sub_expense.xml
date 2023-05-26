@@ -50,12 +50,11 @@
                     tools:ignore="HardcodedText,NestedWeights" />
 
                 <Spinner
-                    android:id="@+id/expense_spinner"
+                    android:id="@+id/spinner_category"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/expense_categories"
                     android:ems="10"
                     android:inputType="text"
                     tools:ignore="Autofill,DuplicateSpeakableTextCheck,HardcodedText,LabelFor" />

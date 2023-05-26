@@ -7,23 +7,110 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- 작성 목적을 입력할 EditText -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        tools:ignore="InefficientWeight"/>
+
+    <!-- 빈 공간을 채우기 위한 레이아웃 -->
+
+    <!-- 버튼을 담을 LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+
+        <!-- 날짜 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:contentDescription="날짜 아이콘"
+                android:src="@drawable/date_icon" />
+
+        </LinearLayout>
+
+        <!-- 자산 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_assets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자산" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:contentDescription="자산 아이콘"
+                android:src="@drawable/assets_icon" />
+
+        </LinearLayout>
+
+        <!-- 통계 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="통계" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:contentDescription="통계 아이콘"
+                android:src="@drawable/statistics_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+        <!-- 상단 레이어 -->
     <LinearLayout
         android:id="@+id/top_layer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="121dp"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp" />
 
+        <!-- 가운데 레이어 -->
         <LinearLayout
+            android:id="@+id/middle_layer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="InefficientWeight">
 
+            <!-- 수입 버튼 -->
             <Button
                 android:id="@+id/income_btn"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:background="@color/purple_500"
@@ -34,24 +121,17 @@
 
             <TextView
                 android:id="@+id/income_category_textview"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="카테고리를\n선택하세요"
                 tools:ignore="HardcodedText,InefficientWeight" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
+            <!-- 지출 버튼 -->
             <Button
                 android:id="@+id/expense_btn"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:background="@color/purple_500"
@@ -62,7 +142,7 @@
 
             <TextView
                 android:id="@+id/expense_category_textview"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -71,62 +151,48 @@
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/middle_layer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        tools:ignore="InefficientWeight">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="임시 레이어"
-            tools:ignore="HardcodedText" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottom_layor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        tools:ignore="DisableBaselineAlignment">
-
+        <!-- 하단 레이어 -->
         <LinearLayout
+            android:id="@+id/bottom_layor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="461dp"
             android:orientation="horizontal"
-            tools:ignore="InefficientWeight,UselessParent">
+            android:padding="16dp"
+            tools:ignore="DisableBaselineAlignment">
 
-            <Button
-                android:id="@+id/purpose_btn"
-                android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:layout_weight="2"
-                android:background="@color/purple_500"
-                android:gravity="center"
-                android:text="작성 목적"
-                android:textColor="#FFFFFF"
-                tools:ignore="HardcodedText,NestedWeights,VisualLintButtonSize" />
-
-            <EditText
-                android:id="@+id/purpose_textview"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="작성 목적을 입력하세요"
-                tools:ignore="Autofill,HardcodedText,LabelFor,TextFields,VisualLintTextFieldSize,TextContrastCheck" />
+                android:orientation="vertical">
+
+                <!-- 작성 목적을 입력할 EditText -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="74dp"
+                        android:text="작성목적" />
+
+                    <EditText
+                        android:id="@+id/editText_purpose"
+                        android:layout_width="match_parent"
+                        android:layout_height="114dp"
+                        android:hint="작성 목적을 입력하세요." />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+
+
+
