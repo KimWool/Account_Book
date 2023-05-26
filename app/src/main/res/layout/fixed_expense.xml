@@ -9,10 +9,11 @@
         android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/fixed_expense_period"
+            android:id="@+id/fixed_expense_spinner"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:entries="@array/period" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
