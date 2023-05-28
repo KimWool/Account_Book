@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.melnykov.fab.FloatingActionButton;
@@ -32,10 +33,19 @@ public class Data_Show_Activity extends AppCompatActivity {
 
         //이벤트 적용
         fab.setOnClickListener(v -> {
-            //버튼 클릭 시 이벤트 작성
-
-            Intent intent = new Intent(Data_Show_Activity.this, Data_Entry_Activity.class);
-            startActivity(intent);
+            //버튼 클릭 시 이벤트
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("추가할 항목 선택");
+            builder.setPositiveButton("지출", (dialog, which) -> {
+                Intent intent = new Intent(Data_Show_Activity.this, Sub_Expense_Activity.class);
+                startActivity(intent);
+            });
+            builder.setNegativeButton("수입", (dialog, which) -> {
+                Intent intent = new Intent(Data_Show_Activity.this, Sub_Income_Activity.class);
+                startActivity(intent);
+            });
+            AlertDialog alertD = builder.create();
+            alertD.show();
         });
     }
 }

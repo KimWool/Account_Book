@@ -7,168 +7,215 @@
     tools:context=".Sub_Income_Activity">
 
     <LinearLayout
-        android:id="@+id/bottom_layer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:id="@+id/data_entry_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <LinearLayout
-            android:id="@+id/category"
+            android:id="@+id/bottom_layer"
+            app:layout_constraintBottom_toTopOf="@+id/container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            tools:ignore="TextSizeCheck">
-
-            <ImageView
-                android:id="@+id/category_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="5"
-                app:srcCompat="@drawable/baseline_category_24"
-                tools:ignore="ContentDescription" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
             <LinearLayout
-                android:id="@+id/category_layout"
+                android:id="@+id/category"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                tools:ignore="TextSizeCheck">
 
-                <TextView
-                    android:id="@+id/category_text"
+                <ImageView
+                    android:id="@+id/category_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="카테고리"
-                    tools:ignore="HardcodedText,NestedWeights" />
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    app:srcCompat="@drawable/baseline_category_24"
+                    tools:ignore="ContentDescription,HardcodedText" />
 
-                <Spinner
-                    android:id="@+id/spinner_category"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                <LinearLayout
+                    android:id="@+id/category_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    tools:ignore="Autofill,DuplicateSpeakableTextCheck,HardcodedText,LabelFor" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/category_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="카테고리"
+                        tools:ignore="HardcodedText,NestedWeights" />
+
+                    <Spinner
+                        android:id="@+id/income_spinner"
+                        style="@style/Widget.AppCompat.Spinner.Underlined"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:entries="@array/income_categories"
+                        android:inputType="text"
+                        tools:ignore="Autofill,DuplicateSpeakableTextCheck,HardcodedText,LabelFor" />
+                </LinearLayout>
+
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                tools:ignore="TextSizeCheck">
+
+                <ImageView
+                    android:id="@+id/amount_image"
+                    app:srcCompat="@drawable/baseline_attach_money_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:id="@+id/amount_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/amount_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="금액"
+                        tools:ignore="HardcodedText,NestedWeights" />
+
+                    <EditText
+                        android:id="@+id/amount_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="금액을 입력하세요"
+                        android:inputType="number"
+                        tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                tools:ignore="TextSizeCheck">
+
+                <ImageView
+                    android:id="@+id/content_image"
+                    app:srcCompat="@drawable/baseline_create_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:id="@+id/content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/content_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="메모"
+                        tools:ignore="HardcodedText,NestedWeights" />
+
+                    <EditText
+                        android:id="@+id/content_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="내용을 추가하세요"
+                        android:inputType="text"
+                        tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/fixed_income"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="고정수입"
+                tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml,VisualLintButtonSize,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/amount"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            tools:ignore="TextSizeCheck">
-
-            <ImageView
-                android:id="@+id/amount_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="5"
-                app:srcCompat="@drawable/baseline_attach_money_24"
-                tools:ignore="ContentDescription" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/amount_layout"
+                android:id="@+id/bottom_layor"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                tools:ignore="DisableBaselineAlignment">
 
-                <TextView
-                    android:id="@+id/amount_text"
+                <Button
+                    android:id="@+id/purpose_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="금액"
-                    tools:ignore="HardcodedText,NestedWeights" />
+                    android:layout_height="96dp"
+                    android:layout_weight="2"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:text="작성 목적"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="HardcodedText,NestedWeights,VisualLintButtonSize" />
 
                 <EditText
-                    android:id="@+id/amount_input"
+                    android:id="@+id/purpose_textview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="금액을 입력하세요"
-                    android:inputType="number"
-                    tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="작성 목적을 입력하세요"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields,VisualLintTextFieldSize,TextContrastCheck" />
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            tools:ignore="TextSizeCheck">
-
-            <ImageView
-                android:id="@+id/content_image"
+            <Button
+                android:id="@+id/insert_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="5"
-                app:srcCompat="@drawable/baseline_create_24"
-                tools:ignore="ContentDescription" />
-
-            <LinearLayout
-                android:id="@+id/content_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/content_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="메모"
-                    tools:ignore="HardcodedText,NestedWeights" />
-
-                <EditText
-                    android:id="@+id/content_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="내용을 추가하세요"
-                    android:inputType="text"
-                    tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
-            </LinearLayout>
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="입력"
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         </LinearLayout>
-
-        <Switch
-            android:id="@+id/fixed_income"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="고정수입"
-            tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml,VisualLintButtonSize" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_layer"
-        tools:ignore="MissingConstraints"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

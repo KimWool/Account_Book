@@ -28,9 +28,6 @@
             android:name=".Sub_Income_Activity"
             android:exported="false" />
         <activity
-            android:name=".Data_Entry_Activity"
-            android:exported="false" />
-        <activity
             android:name=".Data_Show_Activity"
             android:exported="false" />
         <activity
