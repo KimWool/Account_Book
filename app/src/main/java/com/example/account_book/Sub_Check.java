@@ -39,7 +39,7 @@ public class Sub_Check extends AppCompatActivity {
                 AlertDialog.Builder ad = new AlertDialog.Builder(Sub_Check.this);
                 ad.setIcon(R.mipmap.ic_launcher);
                 LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.check_dialog, null);
+                View dialogView = inflater.inflate(R.layout.check_dialog, null)
                 ad.setView(dialogView);
                 ad.setTitle("제목");
                 // 년도, 월, 수입/지출, 카테고리를 선택하는 스피너
@@ -110,7 +110,7 @@ public class Sub_Check extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                });
+                })
             }
         });
 
