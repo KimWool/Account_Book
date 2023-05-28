@@ -1,5 +1,6 @@
 package com.example.account_book;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -31,7 +32,10 @@ public class Data_Show_Activity extends AppCompatActivity {
 
         //이벤트 적용
         fab.setOnClickListener(v -> {
-            //여기에 버튼 클릭 시 이벤트 작성
+            //버튼 클릭 시 이벤트 작성
+
+            Intent intent = new Intent(Data_Show_Activity.this, Data_Entry_Activity.class);
+            startActivity(intent);
         });
     }
 }

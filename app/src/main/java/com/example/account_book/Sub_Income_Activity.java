@@ -1,5 +1,6 @@
 package com.example.account_book;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Sub_Income_Activity extends AppCompatActivity {
 
     LinearLayout container;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch aSwitch;
 
     @Override
