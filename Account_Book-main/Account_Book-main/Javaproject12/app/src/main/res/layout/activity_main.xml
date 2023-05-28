@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 작성 목적을 입력할 EditText -->
+    <EditText
+        android:id="@+id/editText_purpose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="작성 목적을 입력하세요." />
+
+    <!-- 빈 공간을 채우기 위한 레이아웃 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 버튼을 담을 LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+
+        <!-- 날짜 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:contentDescription="날짜 아이콘"
+                android:src="@drawable/date_icon" />
+
+        </LinearLayout>
+
+        <!-- 자산 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_assets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자산" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:contentDescription="자산 아이콘"
+                android:src="@drawable/assets_icon" />
+
+        </LinearLayout>
+
+        <!-- 통계 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="통계" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:contentDescription="통계 아이콘"
+                android:src="@drawable/statistics_icon" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
