@@ -1,7 +1,10 @@
 package com.example.account_book;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button expenseBtn;
     TextView incomeCategoryTextView;
     TextView expenseCategoryTextView;
+    TextView purposeTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +28,53 @@ public class MainActivity extends AppCompatActivity {
 
         // 날짜 버튼
         Button buttonDate = findViewById(R.id.button_date);
-        buttonDate.setOnClickListener(v -> {
-            // 날짜 버튼이 클릭되었을 때 실행되는 동작 구현
-            Toast.makeText(MainActivity.this, "날짜 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+        buttonDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 날짜 버튼이 클릭되었을 때 실행되는 동작 구현
+                Toast.makeText(MainActivity.this, "날짜 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+
+                // StatisticsActivity로 전환하는 Intent 생성
+                Intent intent = new Intent(MainActivity.this, Sub_Check.class);
+
+                // 액티비티 전환
+                startActivity(intent);
+
+            }
         });
 
         // 통계 버튼
         Button buttonStatistics = findViewById(R.id.button_statistics);
-        buttonStatistics.setOnClickListener(v -> {
-            // 통계 버튼이 클릭되었을 때 실행되는 동작 구현
-            Toast.makeText(MainActivity.this, "통계 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+        buttonStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 통계 버튼이 클릭되었을 때 실행되는 동작 구현
+                Toast.makeText(MainActivity.this, "통계 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+
+                // StatisticsActivity로 전환하는 Intent 생성
+                Intent intent = new Intent(MainActivity.this, Expenditure_Activity.class);
+
+                // 액티비티 전환
+                startActivity(intent);
+
+            }
         });
 
         // 자산 버튼
         Button buttonAssets = findViewById(R.id.button_assets);
-        buttonAssets.setOnClickListener(v -> {
-            // 자산 버튼이 클릭되었을 때 실행되는 동작 구현
-            Toast.makeText(MainActivity.this, "자산 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+        buttonAssets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 자산 버튼이 클릭되었을 때 실행되는 동작 구현
+                Toast.makeText(MainActivity.this, "자산 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+
+                // StatisticsActivity로 전환하는 Intent 생성
+                Intent intent = new Intent(MainActivity.this, Data_Show_Activity.class);
+
+                // 액티비티 전환
+                startActivity(intent);
+
+            }
         });
 
         incomeBtn = findViewById(R.id.income_btn);
@@ -48,14 +82,17 @@ public class MainActivity extends AppCompatActivity {
         incomeCategoryTextView = findViewById(R.id.income_category_textview);
         expenseCategoryTextView = findViewById(R.id.expense_category_textview);
 
+
         incomeBtn.setOnClickListener(v -> {
             // 카테고리 선택 다이얼로그 띄우기
             showDialog("income");
+
         });
 
         expenseBtn.setOnClickListener(v -> {
             // 카테고리 선택 다이얼로그 띄우기
             showDialog("expense");
+
         });
     }
 
@@ -77,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
             } else { // type.equals("expense")
                 expenseCategoryTextView.setText(category);
             }
+
+            // 선택한 카테고리를 기반으로 Sub_Expense_Activity로 전환하는 Intent 생성
+            Intent intent = new Intent(MainActivity.this, Sub_Expense_Activity.class);
+            intent.putExtra("category", category); // 선택한 카테고리를 인텐트에 추가
+
+            // 액티비티 전환
+            startActivity(intent);
         });
         AlertDialog dialog = builder.create();
         dialog.show();
