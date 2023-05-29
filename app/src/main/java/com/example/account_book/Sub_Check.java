@@ -92,7 +92,7 @@ public class Sub_Check extends AppCompatActivity {
         btn_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Sub_Check.this, Sub_Expense_Activity.class);
+                Intent intent = new Intent(Sub_Check.this, Data_Show_Activity.class);
                 startActivity(intent); //액티비티 이동
             }
         });
