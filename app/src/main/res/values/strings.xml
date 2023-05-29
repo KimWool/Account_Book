@@ -4,4 +4,8 @@
     <string name="next_string">&gt;</string>
     <string name="income">수입</string>
     <string name="expense">소비</string>
+    <string name="내용">내용</string>
+    <string name="카테고리">카테고리</string>
+    <string name="고정_여부">고정 수입/지출 여부</string>
+    <string name="금액">금액</string>
 </resources>

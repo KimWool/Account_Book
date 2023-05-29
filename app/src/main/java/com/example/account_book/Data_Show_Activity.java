@@ -2,34 +2,71 @@ package com.example.account_book;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.melnykov.fab.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class Data_Show_Activity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Data> arrayList;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_show);
 
-        //리스트 목록 작성
-        String[] listString = {"list 1", "list 2", "list 3", "list 4", "list 5", "list 6", "list 7", "list 8", "list 9", "list 10"};
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        arrayList = new ArrayList<>();
 
-        //리스트 어뎁터 생성
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listString);
+        database = FirebaseDatabase.getInstance();
 
-        //리스트 뷰에 어뎁터 적용
-        ListView listView = findViewById(R.id.list);
-        listView.setAdapter(adapter);
+        databaseReference = database.getReference("Data");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
+                    Data data = childSnapshot.getValue(Data.class);
+                    arrayList.add(data);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Data_Show_Activity", String.valueOf(databaseError.toException()));
+            }
+        });
+
+
+
+        adapter = new CustomAdapter(arrayList, this);
+        recyclerView.setAdapter(adapter); //recyclerView에 adapter 연결
 
         //Floating Action Button을 리스트 뷰에 적용
         FloatingActionButton fab = findViewById(R.id.add_button);
-        fab.attachToListView(listView);
+        //fab.attachToListView(recyclerView);
 
         //이벤트 적용
         fab.setOnClickListener(v -> {
