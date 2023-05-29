@@ -27,7 +27,6 @@ public class Sub_Check extends AppCompatActivity {
     private int selectedYear;
     private int selectedMonth;
 
-    AlertDialog.Builder ad = new AlertDialog.Builder(Sub_Check.this).setTitle("제목");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
