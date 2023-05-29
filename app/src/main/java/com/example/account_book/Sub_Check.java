@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 public class Sub_Check extends AppCompatActivity {
-
+    Button btn_move;
     private Spinner yearSpinner;
     private Spinner monthSpinner;
     private Spinner in_exSpinner;
@@ -27,6 +27,7 @@ public class Sub_Check extends AppCompatActivity {
     private int selectedYear;
     private int selectedMonth;
 
+    AlertDialog.Builder ad = new AlertDialog.Builder(Sub_Check.this).setTitle("제목");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,23 +88,14 @@ public class Sub_Check extends AppCompatActivity {
 
             }
         });
-        AlertDialog.Builder ad = new AlertDialog.Builder(Sub_Check.this).setTitle("제목");
-        ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+
+        btn_move = findViewById(R.id.btn_move); // 클릭 이벤트로 인한 다른 액티비티 이동
+        btn_move.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
                 Intent intent = new Intent(Sub_Check.this, Sub_Expense_Activity.class);
                 startActivity(intent); //액티비티 이동
             }
         });
-
-        ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        AlertDialog dialog = ad.create();
-        dialog.show();
     }
 }
