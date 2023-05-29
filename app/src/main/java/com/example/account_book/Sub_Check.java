@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Sub_Check extends AppCompatActivity {
 
     Button btn_search;
-    Button btn_move;
     private Spinner yearSpinner;
     private Spinner monthSpinner;
     private Spinner in_exSpinner;
@@ -101,7 +100,8 @@ public class Sub_Check extends AppCompatActivity {
                 ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        Intent intent = new Intent(Sub_Check.this, Sub_Expense_Activity.class);
+                        startActivity(intent); //액티비티 이동
                     }
                 });
 
@@ -111,15 +111,6 @@ public class Sub_Check extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
-
-        btn_move = findViewById(R.id.btn_search); // 클릭 이벤트로 인한 다른 액티비티 이동
-        btn_move.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Sub_Check.this, Sub_Expense_Activity.class);
-                startActivity(intent); //액티비티 이동
             }
         });
     }
