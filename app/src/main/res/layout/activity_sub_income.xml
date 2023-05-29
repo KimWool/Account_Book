@@ -164,7 +164,7 @@
                 android:id="@+id/fixed_income"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="고정수입"
+                android:text="고정 수입"
                 tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml,VisualLintButtonSize,TouchTargetSizeCheck" />
 
         </LinearLayout>
