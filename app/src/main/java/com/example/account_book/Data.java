@@ -8,6 +8,9 @@ public class Data {
 
     public Data(){}
 
+    public Data(String category, String amount, String content, String fixedData) {
+    }
+
     public int getAmount() {
         return amount;
     }

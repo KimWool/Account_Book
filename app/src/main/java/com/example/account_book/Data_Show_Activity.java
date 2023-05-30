@@ -40,8 +40,8 @@ public class Data_Show_Activity extends AppCompatActivity {
         String selectedYear = intent1.getStringExtra("selectedYear");
         String selectedMonth = intent1.getStringExtra("selectedMonth");
         String selectedType = intent1.getStringExtra("selectedType");
-        String selectedInCategory = intent1.getStringExtra("selectedin_Category");
-        String selectedExCategory = intent1.getStringExtra("selectedex_Category");
+        String selectedInCategory = intent1.getStringExtra("selectedIn_Category");
+        String selectedExCategory = intent1.getStringExtra("selectedEx_Category");
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -59,14 +59,12 @@ public class Data_Show_Activity extends AppCompatActivity {
                 arrayList.clear();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
                     Data data = childSnapshot.getValue(Data.class);
-                    arrayList.add(data);
-                    if (data != null) {
-                        String fixed_data = data.getFixed_data();
-                        String category = data.getCategory();
-                        // 데이터베이스에서 가져온 fixedData와 category 값과 선택한 값들을 비교하여 일치하는지 확인
-                        if (fixed_data != null && fixed_data.equals(selectedType) && (category.equals(selectedInCategory) || category.equals(selectedExCategory))) {
-                            arrayList.add(data);
-                        }
+                    String category = childSnapshot.child("category").getValue(String.class);
+
+                    // selectedIn_Category나 selectedEx_Category와 같은 값인 경우
+                    if (category != null && (category.equals(selectedInCategory) || category.equals(selectedExCategory))) {
+                        // Data 객체를 ArrayList에 추가
+                        arrayList.add(data);
                     }
                 }
                 adapter.notifyDataSetChanged();
