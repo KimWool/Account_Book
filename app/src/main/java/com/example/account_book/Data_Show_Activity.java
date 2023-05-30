@@ -67,7 +67,7 @@ public class Data_Show_Activity extends AppCompatActivity {
                     if (fixedData != null) {
                         if (selectedType.equals("고정") && (fixedData.equals("고정 수입") || fixedData.equals("고정 지출"))) {
                             arrayList.add(data);
-                        } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입"))) {
+                        } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입")|| fixedData.equals(("변동 지출")))) {
                             arrayList.add(data);
                         }
                     }
