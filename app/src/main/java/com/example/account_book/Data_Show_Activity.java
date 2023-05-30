@@ -66,14 +66,14 @@ public class Data_Show_Activity extends AppCompatActivity {
                     // selectedIn_Category나 selectedEx_Category와 같은 값인 경우
                     if (fixedData != null) {
                         if (selectedType.equals("고정") && (fixedData.equals("고정 수입") || fixedData.equals("고정 지출"))) {
-                            arrayList.add(data);
-                        } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입")|| fixedData.equals(("변동 지출")))) {
-                            arrayList.add(data);
+                            if (category != null && (category.equals(selectedInCategory))){
+                                arrayList.add(data);
+                            }
+                        } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입") || fixedData.equals(("변동 지출")))) {
+                            if (category != null && category.equals(selectedExCategory)){
+                                arrayList.add(data);
+                            }
                         }
-                    }
-                    else if (category != null && (category.equals(selectedInCategory) || category.equals(selectedExCategory))) {
-                        // Data 객체를 ArrayList에 추가
-                        arrayList.add(data);
                     }
                 }
                 adapter.notifyDataSetChanged();
