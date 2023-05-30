@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name="year">
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>고정</item>
+        <item>변동</item>
+    </string-array>
+
     <string-array name="choose_categories">
         <item>수입</item>
         <item>지출</item>
     </string-array>
+
     <string-array name="income_categories">
         <item>월급</item>
         <item>보너스</item>

@@ -19,8 +19,9 @@ public class Sub_Check extends AppCompatActivity {
     Button btn_move;
     private Spinner yearSpinner;
     private Spinner monthSpinner;
-    private Spinner in_exSpinner;
-    private Spinner cateSpinner;
+    private Spinner typeSpinner;
+    private Spinner in_cateSpinner;
+    private Spinner ex_cateSpinner;
 
     private String str;
     private ListView transactionListView;
@@ -31,11 +32,12 @@ public class Sub_Check extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_check);
-        // 년도, 월, 수입/지출, 카테고리를 선택하는 스피너
+        // 년도, 월, 고정/변동, 카테고리를 선택하는 스피너
         yearSpinner = (Spinner) findViewById(R.id.spinner1);
         monthSpinner = (Spinner) findViewById(R.id.spinner2);
-        in_exSpinner = (Spinner) findViewById(R.id.spinner3);
-        cateSpinner = (Spinner) findViewById(R.id.spinner4);
+        typeSpinner = (Spinner) findViewById(R.id.spinner3);
+        in_cateSpinner = (Spinner) findViewById(R.id.spinner4);
+        ex_cateSpinner = (Spinner) findViewById(R.id.spinner5);
 
         yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,7 +65,7 @@ public class Sub_Check extends AppCompatActivity {
             }
         });
 
-        in_exSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedType = parent.getItemAtPosition(position).toString();
@@ -75,7 +77,20 @@ public class Sub_Check extends AppCompatActivity {
 
             }
         });
-        cateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        in_cateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedcate = parent.getItemAtPosition(position).toString();
+                //Data(selectedcate, getselectedcate());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ex_cateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedcate = parent.getItemAtPosition(position).toString();
@@ -93,6 +108,11 @@ public class Sub_Check extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Sub_Check.this, Data_Show_Activity.class);
+                intent.putExtra("selectedYear", yearSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedMonth", monthSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedType", typeSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedin_Category", in_cateSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedex_Category", ex_cateSpinner.getSelectedItem().toString());
                 startActivity(intent); //액티비티 이동
             }
         });

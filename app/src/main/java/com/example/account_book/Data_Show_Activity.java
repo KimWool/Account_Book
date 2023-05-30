@@ -33,6 +33,13 @@ public class Data_Show_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_show);
 
+        Intent intent1 = getIntent();
+        String selectedYear = intent1.getStringExtra("selectedYear");
+        String selectedMonth = intent1.getStringExtra("selectedMonth");
+        String selectedType = intent1.getStringExtra("selectedType");
+        String selectedInCategory = intent1.getStringExtra("selectedin_Category");
+        String selectedExCategory = intent1.getStringExtra("selectedex_Category");
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -49,6 +56,13 @@ public class Data_Show_Activity extends AppCompatActivity {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
                     Data data = childSnapshot.getValue(Data.class);
                     arrayList.add(data);
+                    if (selectedYear.equals(data.getYear()) &&
+                            selectedMonth.equals(data.getMonth()) &&
+                            selectedType.equals(data.getFixed_data()) &&
+                            (selectedInCategory.equals(data.getCategory()) ||
+                                    selectedExCategory.equals(data.getCategory()))) {
+                        arrayList.add(data);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
