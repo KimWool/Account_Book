@@ -57,14 +57,21 @@ public class Data_Show_Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // 파이어베이스 데이터베이스의 데이터 받아오는 곳
                 arrayList.clear();
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Data data = childSnapshot.getValue(Data.class);
                     String category = childSnapshot.child("category").getValue(String.class);
+                    String fixedData = childSnapshot.child("fixed_data").getValue(String.class);
 
                     // selectedIn_Category나 selectedEx_Category와 같은 값인 경우
                     if (category != null && (category.equals(selectedInCategory) || category.equals(selectedExCategory))) {
                         // Data 객체를 ArrayList에 추가
                         arrayList.add(data);
+                    } else if (fixedData != null) {
+                        if (selectedType.equals("고정") && (fixedData.equals("고정 수입") || fixedData.equals("고정 지출"))) {
+                            arrayList.add(data);
+                        } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입"))) {
+                            arrayList.add(data);
+                        }
                     }
                 }
                 adapter.notifyDataSetChanged();
