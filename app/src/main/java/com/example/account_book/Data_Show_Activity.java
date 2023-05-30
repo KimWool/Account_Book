@@ -36,6 +36,7 @@ public class Data_Show_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_show);
 
+        // Sub_Check에서 값을 받아온다
         Intent intent1 = getIntent();
         String selectedYear = intent1.getStringExtra("selectedYear");
         String selectedMonth = intent1.getStringExtra("selectedMonth");
@@ -59,17 +60,22 @@ public class Data_Show_Activity extends AppCompatActivity {
                 arrayList.clear();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Data data = childSnapshot.getValue(Data.class);
+                    // fixedData에 데이터베이스의 fixed_data에 해당하는 값 저장
                     String fixedData = childSnapshot.child("fixed_data").getValue(String.class);
+                    // category에 데이터베이스의 category에 해당하는 값 저장
                     String category = childSnapshot.child("category").getValue(String.class);
 
 
-                    // selectedIn_Category나 selectedEx_Category와 같은 값인 경우
+                    // fixedData가 고정 수입이거나 고정 지출일 때 조회값이 고정인 경우
                     if (fixedData != null) {
                         if (selectedType.equals("고정") && (fixedData.equals("고정 수입") || fixedData.equals("고정 지출"))) {
+                            // category가 조회한 수입 카테고리와 일치하는 경우 데이터 보여줌
                             if (category != null && (category.equals(selectedInCategory))){
                                 arrayList.add(data);
                             }
+                            // fixedDate가 변동 수입이거나 변동 지출일 때 조회값이 변동일 경우
                         } else if (selectedType.equals("변동") && (fixedData.equals("변동 수입") || fixedData.equals(("변동 지출")))) {
+                            // category가 조회한 지출 카테고리와 일치하는 경우 데이터 보여줌
                             if (category != null && category.equals(selectedExCategory)){
                                 arrayList.add(data);
                             }
