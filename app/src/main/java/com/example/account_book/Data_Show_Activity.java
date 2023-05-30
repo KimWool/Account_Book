@@ -56,8 +56,8 @@ public class Data_Show_Activity extends AppCompatActivity {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
                     Data data = childSnapshot.getValue(Data.class);
                     arrayList.add(data);
-                    if (selectedYear.equals(data.getYear()) &&
-                            selectedMonth.equals(data.getMonth()) &&
+                    if (/*selectedYear.equals(data.getYear()) &&
+                            selectedMonth.equals(data.getMonth()) &&*/
                             selectedType.equals(data.getFixed_data()) &&
                             (selectedInCategory.equals(data.getCategory()) ||
                                     selectedExCategory.equals(data.getCategory()))) {
