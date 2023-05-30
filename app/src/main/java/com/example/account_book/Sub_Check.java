@@ -23,10 +23,11 @@ public class Sub_Check extends AppCompatActivity {
     private Spinner in_cateSpinner;
     private Spinner ex_cateSpinner;
 
-    private String str;
-    private ListView transactionListView;
-    private int selectedYear;
-    private int selectedMonth;
+    private String selectedYear;
+    private String selectedMonth;
+    private String selectedType;
+    private String selectedInCategory;
+    private String selectedExCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,64 +43,65 @@ public class Sub_Check extends AppCompatActivity {
         yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedYear = parent.getItemAtPosition(position).toString();
+                selectedYear = parent.getItemAtPosition(position).toString();
                 //Data(selectedYear, getselectedYear());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                selectedYear = "";
             }
         });
 
         monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedMonth = parent.getItemAtPosition(position).toString();
+                selectedMonth = parent.getItemAtPosition(position).toString();
                 //Data(selectedMonth, getselectedMonth());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                selectedMonth = "";
             }
         });
 
         typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedType = parent.getItemAtPosition(position).toString();
+                selectedType = parent.getItemAtPosition(position).toString();
                 //Data(selectedType, getselectedType());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                selectedType = "";
 
             }
         });
         in_cateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedcate = parent.getItemAtPosition(position).toString();
+                selectedInCategory = parent.getItemAtPosition(position).toString();
                 //Data(selectedcate, getselectedcate());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                selectedInCategory = "";
             }
         });
 
         ex_cateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedcate = parent.getItemAtPosition(position).toString();
-                //Data(selectedcate, getselectedcate());
+                selectedExCategory = parent.getItemAtPosition(position).toString();
+                //Data(selectedcate, getCategory());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                selectedExCategory = "";
             }
         });
 
@@ -111,8 +113,8 @@ public class Sub_Check extends AppCompatActivity {
                 intent.putExtra("selectedYear", yearSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedMonth", monthSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedType", typeSpinner.getSelectedItem().toString());
-                intent.putExtra("selectedin_Category", in_cateSpinner.getSelectedItem().toString());
-                intent.putExtra("selectedex_Category", ex_cateSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedIn_Category", in_cateSpinner.getSelectedItem().toString());
+                intent.putExtra("selectedEx_Category", ex_cateSpinner.getSelectedItem().toString());
                 startActivity(intent); //액티비티 이동
             }
         });

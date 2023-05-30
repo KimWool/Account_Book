@@ -1,5 +1,7 @@
 package com.example.account_book;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -52,16 +55,18 @@ public class Data_Show_Activity extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 파이어베이스 데이터베이스의 데이터 받아오는 곳
                 arrayList.clear();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
                     Data data = childSnapshot.getValue(Data.class);
                     arrayList.add(data);
-                    if (/*selectedYear.equals(data.getYear()) &&
-                            selectedMonth.equals(data.getMonth()) &&*/
-                            selectedType.equals(data.getFixed_data()) &&
-                            (selectedInCategory.equals(data.getCategory()) ||
-                                    selectedExCategory.equals(data.getCategory()))) {
-                        arrayList.add(data);
+                    if (data != null) {
+                        String fixed_data = data.getFixed_data();
+                        String category = data.getCategory();
+                        // 데이터베이스에서 가져온 fixedData와 category 값과 선택한 값들을 비교하여 일치하는지 확인
+                        if (fixed_data != null && fixed_data.equals(selectedType) && (category.equals(selectedInCategory) || category.equals(selectedExCategory))) {
+                            arrayList.add(data);
+                        }
                     }
                 }
                 adapter.notifyDataSetChanged();
