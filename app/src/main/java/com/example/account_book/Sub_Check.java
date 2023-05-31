@@ -1,19 +1,13 @@
 package com.example.account_book;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Sub_Check extends AppCompatActivity {
     Button btn_move;
@@ -104,14 +98,14 @@ public class Sub_Check extends AppCompatActivity {
         btn_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Sub_Check.this, Data_Show_Activity.class);
-                // 스피너에서 선택한 값 Data_Show_Activity에 변수로 전달
+                Intent intent = new Intent(Sub_Check.this, Data_Check_Activity.class);
+                // 스피너에서 선택한 값 Data_Check_Activity에 변수로 전달
                 intent.putExtra("selectedYear", yearSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedMonth", monthSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedType", typeSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedIn_Category", in_cateSpinner.getSelectedItem().toString());
                 intent.putExtra("selectedEx_Category", ex_cateSpinner.getSelectedItem().toString());
-                startActivity(intent); // Data_Show_Activity로 이동
+                startActivity(intent); // Data_Check_Activity로 이동
             }
         });
     }

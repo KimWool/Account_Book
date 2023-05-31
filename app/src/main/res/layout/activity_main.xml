@@ -24,7 +24,7 @@
         android:orientation="horizontal"
         android:layout_gravity="bottom">
 
-        <!-- 날짜 버튼 -->
+        <!-- 조회 버튼 -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,12 +35,12 @@
                 android:id="@+id/button_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="날짜" />
+                android:text="조회" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="84dp"
-                android:contentDescription="날짜 아이콘"
+                android:contentDescription="조회 아이콘"
                 android:src="@drawable/date_icon" />
 
         </LinearLayout>

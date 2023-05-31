@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonDate = findViewById(R.id.button_date);
         buttonDate.setOnClickListener(v -> {
             // 날짜 버튼이 클릭되었을 때 실행되는 동작 구현
-            Toast.makeText(MainActivity.this, "날짜 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "날짜 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
 
             // StatisticsActivity로 전환하는 Intent 생성
             Intent intent = new Intent(MainActivity.this, Sub_Check.class);
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonStatistics = findViewById(R.id.button_statistics);
         buttonStatistics.setOnClickListener(v -> {
             // 통계 버튼이 클릭되었을 때 실행되는 동작 구현
-            Toast.makeText(MainActivity.this, "통계 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "통계 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
 
             // StatisticsActivity로 전환하는 Intent 생성
             Intent intent = new Intent(MainActivity.this, Expenditure_Activity.class);
